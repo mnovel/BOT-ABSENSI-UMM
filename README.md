@@ -15,10 +15,11 @@ $ telegram-send --configure
 
 ## Installation Windows
 
-Before installing the program below, install [python](https://www.python.org/downloads/) first. Then download script [main.py](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/main/main.py) and install [chromium] for windows
+Before installing the program below, install [python](https://www.python.org/downloads/) first. Then download script [main.py](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/main/main.py) and install [chromium](https://sites.google.com/chromium.org/driver/) for windows
 
 ```bash
 pip install -r requirements.txt
+telegram-send --configure
 ```
 
 ## Settings
