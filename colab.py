@@ -1,6 +1,7 @@
 # Code By Muhammad Novel
 # Github : https://github.com/mnovel/BOT-ABSENSI-UMM
 # Instagram : https://www.instagram.com/muhnovel._/
+# Run Program
 
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,10 +15,6 @@ import telegram_send
 import threading
 import pytz
 import time
-
-# Code By Muhammad Novel
-# Github : https://github.com/mnovel/BOT-ABSENSI-UMM
-# Instagram : https://www.instagram.com/muhnovel._/
 
 id_ID = pytz.timezone('Asia/Jakarta')
 
@@ -109,7 +106,7 @@ def sendSts():
         now = datetime.now(id_ID)
         telegram_send.send(
             messages=["[~] " + now.strftime("%A, %H:%M:%S") + " >> Server is UP"])
-        time.sleep(5)
+        time.sleep(3600)
 
 
 def login(res, username, password, dates):
