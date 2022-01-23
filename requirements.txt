@@ -1,0 +1,4 @@
+pytz==2021.3
+selenium==4.0.0a1
+telegram_send==0.25
+webdriver_manager==3.5.2
