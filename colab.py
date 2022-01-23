@@ -1,7 +1,8 @@
-# !pip install selenium
-# !pip install webdriver_manager
-# !apt-get update
-# !apt install chromium-chromedriver
+!pip install selenium
+!pip install webdriver_manager
+!pip install telegram_send
+!apt-get update
+!apt install chromium-chromedriver
 
 # Code By Muhammad Novel
 # Github : https://github.com/mnovel/BOT-ABSENSI-UMM
