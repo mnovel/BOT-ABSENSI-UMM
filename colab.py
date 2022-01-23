@@ -1,23 +1,20 @@
-!pip install selenium
-!pip install webdriver_manager
-!pip install telegram_send
-!apt-get update
-!apt install chromium-chromedriver
-
 # Code By Muhammad Novel
 # Github : https://github.com/mnovel/BOT-ABSENSI-UMM
 # Instagram : https://www.instagram.com/muhnovel._/
+# Run Program
 
-import time
-import pytz
-import telegram_send
-from selenium import webdriver
-from datetime import datetime
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+from datetime import datetime
+from selenium import webdriver
+import concurrent.futures
+import telegram_send
+import threading
+import pytz
+import time
 
 id_ID = pytz.timezone('Asia/Jakarta')
 
@@ -26,7 +23,6 @@ chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument('--disable-gpu')
-
 
 matkul = [
     {
@@ -105,6 +101,14 @@ def sendTele(msg):
     telegram_send.send(messages=[msg])
 
 
+def sendSts():
+    while True:
+        now = datetime.now(id_ID)
+        telegram_send.send(
+            messages=["[~] " + now.strftime("%A, %H:%M:%S") + " >> Server is UP"])
+        time.sleep(3600)
+
+
 def login(res, username, password, dates):
 
     name = res["name"]
@@ -159,17 +163,23 @@ def login(res, username, password, dates):
             driver.quit()
 
 
-while True:
-    for res in matkul:
-        now = datetime.now(id_ID)
-        day = now.strftime("%A")
-        times = now.strftime("%H")
-        username = 123
-        password = 123
+def loopMain():
+    while True:
+        for res in matkul:
+            now = datetime.now(id_ID)
+            day = now.strftime("%A")
+            times = now.strftime("%H")
+            username = 123
+            password = 123
 
-        if str(res["day"]) == str(day) and str(res["time"]) == str(times):
-            login(res, username, password, now.strftime("%A, %H:%M:%S"))
-        else:
-            print("[-]", now.strftime("%A, %H:%M:%S"),
-                  "WIB >> Belum Waktu Absen", res["name"])
-        time.sleep(5)
+            if str(res["day"]) == str(day) and str(res["time"]) == str(times):
+                login(res, username, password, now.strftime("%A, %H:%M:%S"))
+            else:
+                print("[-]", now.strftime("%A, %H:%M:%S"),
+                      "WIB >> Belum Waktu Absen", res["name"])
+            time.sleep(5)
+
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    f1 = executor.submit(loopMain)
+    f2 = executor.submit(sendSts)
