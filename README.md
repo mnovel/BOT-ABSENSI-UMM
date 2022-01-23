@@ -23,10 +23,10 @@ pip install -r requirements.txt
 
 ## Settings
 
-1. Change the [Username](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/ef985856dd180f45fb79c0d840463341b33efacd/colab.py#L145) with your NIM.
-2. Change the [Password](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/ef985856dd180f45fb79c0d840463341b33efacd/colab.py#L146) with your PIC.
-3. Change the course data [here](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/ef985856dd180f45fb79c0d840463341b33efacd/colab.py#L23-L80).
-4. Change chromium storage address [here](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/e98ea2b928aff18ec9046929f9cfb221f904252d/main.py#L104)
+1. Change the [Username](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/140259994a7d966101312ba58767f49ce3c2718a/main.py#L161) with your NIM.
+2. Change the [Password](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/140259994a7d966101312ba58767f49ce3c2718a/main.py#L162) with your PIC.
+3. Change the course data [here](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/140259994a7d966101312ba58767f49ce3c2718a/main.py#L25-L82).
+4. Change chromium storage address [here](https://github.com/mnovel/BOT-ABSENSI-UMM/blob/140259994a7d966101312ba58767f49ce3c2718a/main.py#L111)
 
 ## Usage In Kali Linux
 
